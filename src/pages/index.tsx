@@ -16,7 +16,7 @@ export default function Home() {
   useLayoutEffect(() => {
     if (didEffect.current) return;
     didEffect.current = true;
-    InertialScrolling();
+    // InertialScrolling();
   }, []);
 
   useEffect(() => {

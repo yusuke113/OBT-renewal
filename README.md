@@ -1,4 +1,4 @@
-# Next.js サイト制作テンプレート
+# OBTサイトリニューアル
 
 ## 開発するには
 
@@ -11,7 +11,7 @@
 
 - プロジェクトを作成したいフォルダ内で(SSH)
 ```bash
-git clone <リポジトリURL> && cd nextjs-site-template && make init
+git clone git@github.com:yusuke113/OBT-renewal.git && cd OBT-renewal && make init
 ```
 
 3. ターミナルでmake 下記コマンドを実行し、コンテナのステータスが全てUPになっていることを確認
@@ -21,5 +21,3 @@ make ps
 ```
 
 - ブラウザ表示 http://localhost:3000/
-
-- GitHub Page https://yusuke113.github.io/hidamari-site/
