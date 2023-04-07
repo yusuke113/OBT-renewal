@@ -1,0 +1,16 @@
+@use '../../import' as *;
+
+.footer {
+  width: 100%;
+  padding: 20px;
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  small {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+}

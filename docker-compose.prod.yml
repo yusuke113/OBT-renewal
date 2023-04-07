@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/nextjs/Dockerfile.prod
+    volumes:
+      - ./src:/app
+    ports:
+      - 4000:4000
+    tty: true

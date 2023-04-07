@@ -1,0 +1,18 @@
+FROM node:16.14.2-alpine3.15
+
+ENV TZ Asia/Tokyo
+
+WORKDIR /app
+
+COPY /src /app/
+
+RUN npm install
+
+ENV NODE_ENV production
+
+RUN npm install
+RUN npm run build
+
+EXPOSE 4000
+
+CMD ["npm", "run", "start"]

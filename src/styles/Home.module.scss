@@ -1,0 +1,24 @@
+@use 'import' as *;
+/*---------------------------------
+共通CSS
+---------------------------------*/
+/* レイアウト
+----------------------------------------------------------------- */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 10px;
+}
+
+/* 見出し (heading)
+----------------------------------------------------------------- */
+.heading {
+  margin-bottom: 48px;
+  text-align: center;
+  .heading_icon {
+    display: inline-block;
+    font-size: rem(60px);
+    font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 200;
+    color: $icon_color;
+  }
+}

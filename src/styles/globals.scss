@@ -1,0 +1,103 @@
+@use 'reset';
+@use 'import' as *;
+
+/* Document
+----------------------------------------------------------------- */
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: $base_font_family;
+  letter-spacing: $base_letter_spacing;
+}
+
+/* Lists
+----------------------------------------------------------------- */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Content
+----------------------------------------------------------------- */
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: $text_link_color;
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  max-width: 100%;
+}
+
+/* Content
+----------------------------------------------------------------- */
+body {
+  background: $bg_main_color;
+}
+
+/* Headings
+----------------------------------------------------------------- */
+:is(h1, h2, h3, h4, h5) {
+  font-weight: 500;
+  color: $hd_main_color;
+}
+
+h1 {
+  font-size: rem(24px);
+}
+h2 {
+  font-size: rem(20px);
+}
+h3 {
+  font-size: rem(18px);
+}
+h4 {
+  font-size: rem(16px);
+}
+h5 {
+  font-size: rem(14px);
+}
+
+@include mq(sm) {
+  h1 {
+    font-size: rem(28px);
+  }
+  h2 {
+    font-size: rem(24px);
+  }
+  h3 {
+    font-size: rem(20px);
+  }
+  h4 {
+    font-size: rem(18px);
+  }
+  h5 {
+    font-size: rem(16px);
+  }
+}
+
+/* Option
+----------------------------------------------------------------- */
+.hidden {
+  display: none !important;
+}
+
+/* Circleアニメーションで使用
+----------------------------------------------------------------- */
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.abs {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
