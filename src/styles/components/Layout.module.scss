@@ -1,0 +1,13 @@
+@use '../import' as *;
+
+.viewport {
+  position: static;
+}
+
+.scroll_container {
+  position: fixed;
+  width: 100%;
+}
+
+// 1448px
+// 2383px

@@ -4,6 +4,8 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import styles from '../../../styles/Top.module.scss';
 
 gsap.registerPlugin(ScrollTrigger);
+// ScrollTriggerの内部変数をリセット
+ScrollTrigger.defaults({ reset: true });
 
 export const Solve = () => {
   const didEffect = useRef(false);
@@ -30,7 +32,8 @@ export const Solve = () => {
     hhRef.current.style.height = `${window.innerHeight}px`;
     solveFixedRef.current.style.height = `${window.innerHeight}px`;
     // solveRef.current.style.height = `${window.innerHeight + window.innerHeight / 2}px`;
-    solveRef.current.style.height = `${window.innerHeight}px`;
+    // solveRef.current.style.height = `${window.innerHeight}px`;
+    solveRef.current.style.height = `${window.innerHeight * 1.2}px`;
   }, []);
 
   const circleAnimation = (target: HTMLDivElement | null) => {
@@ -39,13 +42,10 @@ export const Solve = () => {
       width: '100%',
       height: '100%',
       scrollTrigger: {
-        invalidateOnRefresh: true,
+        // invalidateOnRefresh: true,
         trigger: solveRef.current,
         // solveRef.currentの頭が画面の中央に来た時を開始位置に設定
         start: 'center center',
-        // end: 'bottom end',
-        // end: 'bottom ${solveRef.current.offsetHeight}px',
-        // trigger要素の最下部が画面下をendに設定
         end: 'bottom top',
         toggleActions: 'restart none restart none',
         scrub: 0.8,
