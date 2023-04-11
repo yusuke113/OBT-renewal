@@ -3,13 +3,13 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import styles from '../../../styles/Top.module.scss';
 
-gsap.registerPlugin(ScrollTrigger);
 // ScrollTriggerの内部変数をリセット
 ScrollTrigger.defaults({ reset: true });
+gsap.registerPlugin(ScrollTrigger);
 
 export const Solve = () => {
   const didEffect = useRef(false);
-  const hhRef = useRef(null);
+  const secbgRef = useRef(null);
   const circleRef = useRef(null);
   const circleAreaRef = useRef(null);
   const solveRef = useRef(null);
@@ -22,25 +22,40 @@ export const Solve = () => {
   }, []);
 
   useEffect(() => {
-    // 画面四隅の斜めの距離を取得
-    const diagonal = Math.sqrt(Math.pow(window.innerHeight, 2) + Math.pow(window.innerWidth, 2));
-
-    // diagonaの長さをcircleAreaRefのwidthとheightに設定
-    circleAreaRef.current.style.width = `${diagonal}px`;
-    circleAreaRef.current.style.height = `${diagonal}px`;
-
-    hhRef.current.style.height = `${window.innerHeight}px`;
-    solveFixedRef.current.style.height = `${window.innerHeight}px`;
-    // solveRef.current.style.height = `${window.innerHeight + window.innerHeight / 2}px`;
-    // solveRef.current.style.height = `${window.innerHeight}px`;
-    solveRef.current.style.height = `${window.innerHeight * 1.2}px`;
+    handleResize();
+    window.addEventListener('resize', function () {
+      handleResize();
+    });
   }, []);
+
+  const handleResize = () => {
+    const winW = window.innerWidth;
+    const winH = window.innerHeight;
+    const ctrW = winW / 2;
+    const mdlH = winH / 2;
+    // 画面四隅の斜めの距離を取得
+    // const radius = Math.sqrt(ctrW * ctrW + mdlH * mdlH) + 5;
+    const radius = Math.sqrt(ctrW * ctrW + mdlH * mdlH);
+    const circleArea = circleAreaRef.current;
+    const solveFixed = solveFixedRef.current;
+    const secbg = secbgRef.current;
+
+    // circleAreaにwidthとheightを設定
+    circleArea.style.width = `${radius * 2}px`;
+    circleArea.style.height = `${radius * 2}px`;
+
+    secbg.style.height = `${winH}px`;
+    solveFixed.style.height = `${winH}px`;
+
+    solveRef.current.style.height = `${winH}px`;
+  };
 
   const circleAnimation = (target: HTMLDivElement | null) => {
     // スクロールトリガーの設定
     gsap.to(target, {
       width: '100%',
       height: '100%',
+      duration: 0.8,
       scrollTrigger: {
         // invalidateOnRefresh: true,
         trigger: solveRef.current,
@@ -53,14 +68,14 @@ export const Solve = () => {
         // endを超えたときのみabsクラスを付与
         onEnterBack: ({ isActive }) => {
           if (isActive) {
-            solveFixedRef.current.classList.remove('abs');
             solveFixedRef.current.classList.add('fixed');
+            solveFixedRef.current.classList.remove('abs');
           }
         },
         onLeave: ({ isActive }) => {
           if (isActive) {
-            solveFixedRef.current.classList.remove('abs');
             solveFixedRef.current.classList.add('fixed');
+            solveFixedRef.current.classList.remove('abs');
           } else {
             solveFixedRef.current.classList.add('abs');
             solveFixedRef.current.classList.remove('fixed');
@@ -80,7 +95,7 @@ export const Solve = () => {
     <>
       <section className={styles.sss}>
         <div className={styles.solve} ref={solveRef} data-trigger>
-          <div className={styles.solve_h} ref={hhRef}></div>
+          <div className={styles.secbg} ref={secbgRef}></div>
           <div className={`fixed ${styles.c}`} ref={solveFixedRef}>
             <div className={styles.circle_area} ref={circleAreaRef}>
               <div className={styles.circle} ref={circleRef}>

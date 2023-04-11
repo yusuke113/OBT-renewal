@@ -39,7 +39,7 @@
 
 .solve {
   position: relative;
-  .solve_h {
+  .secbg {
     position: static;
   }
   .c {
@@ -65,7 +65,7 @@
     width: 0;
     height: 0;
     background-color: $main_color;
-    opacity: 0.7;
+    // opacity: 0.7;
     border-radius: 50%;
     transform: translate(-50%, -50%);
   }
@@ -93,6 +93,3 @@
   background: aquamarine;
 }
 
-
-// 421
-// 305px

@@ -42,12 +42,15 @@ export default function Layout({ children }: LayoutProps) {
 
     gsap.to(scrollContainer, {
       top: () => -viewport.offsetHeight + window.innerHeight,
-      // ease: 'none',
+      ease: 'none',
       scrollTrigger: {
         // trigger: viewport,
-        trigger: document.body,
-        start: 'top top',
-        end: 'bottom end',
+        // trigger: document.body,
+        trigger: scrollContainer,
+        // start: 'top top',
+        // end: 'bottom end',
+        start: 'top top',     // パターンN
+        end: 'bottom bottom', // パターンN
         scrub: 0.8,
         markers: true,
       },
