@@ -892,19 +892,20 @@ function setInterval_func() {
   cntscr_settimer = setInterval(function () {
     $("#tst").html($(window).height() + "+" + winH_first + "+" + window.innerHeight);
 
-    //慣性スクロール
-    if (touch_flag == "false") {
-      if (scroll_flag == "true") {
-        trg = scroll_y;
-        scroll_y2 = scroll_y2 + (trg - scroll_y2) / 5;
+    // 慣性スクロール
+    if (touch_flag == "false") { // タッチ操作が行われていない場合に実行する
+      if (scroll_flag == "true") { // スクロールが発生している場合に実行する
+        trg = scroll_y; // 目標位置を現在のスクロール位置とする
+        scroll_y2 = scroll_y2 + (trg - scroll_y2) / 5; // 目標位置に向かってスクロール位置を徐々に移動する
 
-        if (Math.abs(trg - scroll_y2) < 0.5) {
+        if (Math.abs(trg - scroll_y2) < 0.5) { // 移動量が一定値以下になった場合は、スクロール位置を目標位置に設定する
           scroll_y2 = trg;
         }
 
-        scroll_func2();
+        scroll_func2(); // スクロール位置の移動が完了したら、scroll_func2()を呼び出す
       }
     }
+
 
     //追跡カーソル
     if (touch_flag == "false") {

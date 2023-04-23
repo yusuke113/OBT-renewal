@@ -3,7 +3,6 @@
   共通CSS
 ---------------------------------*/
 
-
 /*---------------------------------
   TOP
 ---------------------------------*/
@@ -37,50 +36,57 @@
   }
 }
 
-.solve {
+.solve_sec {
   position: relative;
+  z-index: 15;
   .secbg {
-    position: static;
-  }
-  .c {
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    // background: lightpink;
   }
-  .circle_area {
+  .secttl {
     overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vh;
-    height: 100vh;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
-  .circle {
-    overflow: hidden;
+  .ctr_mdl {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
+  }
+  .msk1 {
+    position: absolute;
+  }
+  .msk2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin: auto;
-    width: 0;
-    height: 0;
-    background-color: $main_color;
-    // opacity: 0.7;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    overflow: hidden;
+    &.circle {
+      background-color: $main_color;
+    }
   }
-  .title {
+  .sub {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    // width: 100%;
-    // height: 100%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: $text_white_color;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      white-space: nowrap;
+      text-align: center;
+      font-size: rem(48px);
+      font-weight: bold;
+      color: $text_white_color;
+    }
   }
 }
 
@@ -92,4 +98,3 @@
 .sss {
   background: aquamarine;
 }
-
