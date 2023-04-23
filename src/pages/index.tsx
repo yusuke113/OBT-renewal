@@ -1,9 +1,25 @@
 import Head from 'next/head';
 import styles from '../styles/Top.module.scss';
 import { Solve } from 'components/pages/top/solve';
-
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  // 型定義
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    console.log('scroll');
+    const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+    setScrollPosition(currentPosition);
+  };
+
   return (
     <>
       <Head>
@@ -39,7 +55,7 @@ export default function Home() {
         </section>
         {/* / メインビジュアル */}
         {/* Solve */}
-        <Solve />
+        <Solve scrollPosition={scrollPosition} />
         {/* / Solve */}
         <section>
           <div className={styles.ttt}></div>
