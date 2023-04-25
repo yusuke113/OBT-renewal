@@ -258,6 +258,7 @@ function resize_cont() {
   ajst = 0.3 * winH;
   $("#base .solve").css({ "height": winH * 1.5 - ajst });
 
+  // 画面を埋める中心から画面角までの距離を半径として設定
   radius = Math.sqrt(ctrW * ctrW + mdlH * mdlH) + 5;
   $("#base .solve .ctr_mdl .msk1").css({ "left": -radius, "top": -radius, "width": radius * 2, "height": radius * 2 });
 

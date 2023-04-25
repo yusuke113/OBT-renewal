@@ -80,7 +80,7 @@ h5 {
   }
   h5 {
     font-size: rem(16px);
-  } 
+  }
 }
 
 /* Option
@@ -97,10 +97,9 @@ h5 {
   left: 0;
 }
 
-.abs {
-  position: absolute !important;
-  top: auto !important;
+.sticky {
+  // position: absolute !important;
+  position: sticky !important;
+  // top: initial !important;
   bottom: 0 !important;
 }
-
-

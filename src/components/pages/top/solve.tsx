@@ -48,7 +48,7 @@ export const Solve = ({ scrollPosition }) => {
     const msk1 = msk1Ref.current;
     const sub = subRef.current;
 
-    let ajst = 0.3 * winH;
+    let ajst = 0.1 * winH;
     solve.style.height = `${winH * 1.5 - ajst}px`;
 
     secbg.style.height = `${winH}px`;
@@ -70,7 +70,7 @@ export const Solve = ({ scrollPosition }) => {
 
   const circleAnimation = () => {
     const winH = window.innerHeight;
-    let ajst = 0.3 * winH;
+    let ajst = 0.1 * winH;
     const header = document.querySelector('header');
     const solve = solveRef.current;
     const msk2 = msk2Ref.current;
@@ -80,7 +80,8 @@ export const Solve = ({ scrollPosition }) => {
     gsap.to(msk2, {
       width: '100%',
       height: '100%',
-      duration: 1,
+      duration: 0.2,
+      ease: 'power2.out', //イージングパラメータを設定
       scrollTrigger: {
         trigger: solve,
         start: `center+=${winH * 1.5 - ajst - winH} center`,
@@ -89,27 +90,14 @@ export const Solve = ({ scrollPosition }) => {
         scrub: 0.8,
         // scrub: 1,
         markers: true, // マーカー表示
-        // endを超えたときのみabsクラスを付与
+        // endを超えたときのみstickyクラスを付与
         onEnterBack: ({ isActive }) => {
-          if (isActive) {
-            header.classList.remove('hidden');
-            secTtl.classList.remove('abs');
-          }
+          header.classList.remove('hidden');
+          secTtl.classList.remove('sticky');
         },
         onLeave: ({ isActive }) => {
-          if (isActive) {
-            header.classList.remove('hidden');
-            secTtl.classList.remove('abs');
-          } else {
-            header.classList.add('hidden');
-            secTtl.classList.add('abs');
-          }
-        },
-        onToggle: ({ isActive }) => {
-          if (isActive) {
-            header.classList.remove('hidden');
-            secTtl.classList.remove('abs');
-          }
+          header.classList.add('hidden');
+          secTtl.classList.add('sticky');
         },
       },
     });

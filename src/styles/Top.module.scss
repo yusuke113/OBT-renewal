@@ -37,15 +37,16 @@
 }
 
 .solve_sec {
+  // pointer-events: none;
   position: relative;
   z-index: 15;
+  width: 100%;
   .secbg {
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    // background: lightpink;
   }
   .secttl {
     overflow: hidden;
@@ -77,15 +78,18 @@
   }
   .sub {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    display: table;
     h2 {
-      white-space: nowrap;
+      // white-space: nowrap;
       text-align: center;
       font-size: rem(48px);
       font-weight: bold;
       color: $text_white_color;
+      display: table-cell;
+      vertical-align: middle;
     }
   }
 }
