@@ -89,6 +89,7 @@ export const Solve = ({ scrollPosition }) => {
         toggleActions: 'restart none restart none',
         scrub: 0.8,
         // scrub: 1,
+        // scrub: true,
         markers: true, // マーカー表示
         // endを超えたときのみstickyクラスを付与
         onEnterBack: ({ isActive }) => {
