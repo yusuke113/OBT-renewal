@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useLayoutEffect, useRef } from 'react';
 import { Footer } from './layouts/Footer';
-import { Header } from './layouts/Header';
+import { Header } from './layouts/Header/Header';
 import styles from '../styles/components/Layout.module.scss';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -15,7 +15,8 @@ ScrollTrigger.defaults({ reset: true });
 export default function Layout({ children }: LayoutProps) {
   const viewportRef = useRef(null);
   const scrollContainerRef = useRef(null);
-  const fps = 60; // フレームレート
+  // const fps = 60; // フレームレート
+  const fps = 40; // フレームレート
 
   let touch_flag = 'false';
   let scroll_flag = 'true';
