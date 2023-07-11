@@ -1,4 +1,6 @@
-import MainVisual from 'components/pages/home/mainVisual/mainVisual';
+import Concept from 'components/pages/home/concept/Concept';
+import MainVisual from 'components/pages/home/mainVisual/MainVisual';
+import Workflow from 'components/pages/home/workflow/Workflow';
 import Head from 'next/head';
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
       </Head>
       <div>
         <MainVisual />
+        <Concept />
+        <Workflow />
       </div>
     </>
   );

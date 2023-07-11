@@ -61,10 +61,15 @@ app:
 	docker-compose run --rm app bash
 npm-install:
 	docker-compose exec app npm i
+next-dev:
+	docker-compose exec -d app npm run dev
 next-build:
 	docker-compose exec app npm run build
 next-export:
 	docker-compose exec app npm run export
+rm-out:
+	docker-compose exec app rm -rf out
+	docker-compose exec -d app npm run dev
 
 #
 # Gitに関するコマンド
