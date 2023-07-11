@@ -1,19 +1,27 @@
+import Blog from 'components/pages/home/blog/Blog';
+import Concept from 'components/pages/home/concept/Concept';
+import Contact from 'components/pages/home/contact/Contact';
+import MainVisual from 'components/pages/home/mainVisual/MainVisual';
+import Work from 'components/pages/home/work/Work';
+import Workflow from 'components/pages/home/workflow/Workflow';
 import Head from 'next/head';
-import styles from '../styles/Top.module.scss';
-import { Solve } from 'components/pages/top/solve';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>小幡大貴ポートフォリオ | 小幡大貴</title>
-        <meta name="description" content="小幡大貴ポートフォリオ | 小幡大貴" />
+        <title>TEAMMATE</title>
+        <meta name="description" content="つくる人が楽しいと、 みる人も楽しい TEAMMATE" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-
+        <MainVisual />
+        <Concept />
+        <Workflow />
+        <Work />
+        <Blog />
+        <Contact />
       </div>
     </>
   );

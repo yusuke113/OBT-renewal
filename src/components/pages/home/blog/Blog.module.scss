@@ -1,0 +1,10 @@
+@use '../../../../styles/import' as *;
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 1000px;
+  background-color: #FCF9ED;
+}
